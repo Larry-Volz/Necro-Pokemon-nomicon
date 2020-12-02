@@ -6,10 +6,17 @@ body {
 }
 
 h1 {
-    font-family: 'Pirata One', cursive;
-    color: maroon;
+    font-family: 'Pirata One', cursive !important;
+    color: maroon !important;
+    font-size: 3rem;
 }
 
 p {
     color: gray;
+}
+
+#summon {
+    padding: 1rem;
+    border-style: outset;
+    border-style: double;
 }

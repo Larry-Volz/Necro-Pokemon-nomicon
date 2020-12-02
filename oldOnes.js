@@ -35,19 +35,19 @@ let x = summonButton();
 
 
 function summonButton(){
-    document.addEventListener("click", () =>{
+    document.addEventListener("click", async () =>{
         let summoned = getRandomGod();
         let alter = document.getElementById("oldGods");
         console.log(`summoned: ${summoned}`)
         console.log(alter);
         // alter.innerText = getPokemon()
         alter.innerText += `\n\n${summoned}`;
-        let pokemon = getPokemon();
-        // let sprite = pokemon.data.data.sprites.other.official-artwork.front_default;
+        let pokemon = await getPokemon();
+        let sprite = pokemon.data.sprites.other;
         let xp = pokemon.data.base_experience;
         console.log(`pokemon: `, pokemon);
         console.log(`xp: ${xp}`);
-        // console.log(`sprite: ${sprite}`);
+        console.log(`sprite ${sprite}`);
         
     })
 }
@@ -59,8 +59,10 @@ function getRandomGod(){
 }
 
 async function getPokemon() {
-    res = await axios.get("https://pokeapi.co/api/v2/pokemon/3/")
+    res = await axios.get("https://pokeapi.co/api/v2/pokemon/3/");
     console.log(res);
+    return res;
+    
 }
 
 const oldOnes = ["A grey festering blob of infinite malevolence, described as the lesser brother of Tsathoggua or spawn of Cthulhu, born from his bile and tears.[5]",
