@@ -43,14 +43,7 @@ function summonButton(){
         // alter.innerText = getPokemon()
         alter.innerText += `\n\n${summoned}`;
         let pokemon = await getPokemon();
-        let sprite = pokemon.data.sprites.other;
-        let xp = pokemon.data.base_experience;
-        console.log(`pokemon: `, pokemon);
-        console.log(`xp: ${xp}`);
-        console.log(`sprite ${sprite}`);
-        
-    })
-}
+        let sprite = pokemon.data.sprites.other["official-artwork"].front_default;
 
 
 function getRandomGod(){
