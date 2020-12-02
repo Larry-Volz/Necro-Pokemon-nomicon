@@ -44,8 +44,9 @@ function summonButton(){
         alter.innerText += `\n\n${summoned}`;
         let pokemon = await getPokemon();
         let sprite = pokemon.data.sprites.other["official-artwork"].front_default;
-
-
+        console.log(sprite);
+    });
+    }
 function getRandomGod(){
     let rnd = Math.floor(Math.random()*oldOnes.length);
     return oldOnes[rnd];
