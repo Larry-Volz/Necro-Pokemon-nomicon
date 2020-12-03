@@ -52,7 +52,7 @@ function summonButton(){
         document.getElementById("pokeName").innerText = `\n${pokeName.toUpperCase()}`;
         //Notice the use of brackets and quotes because of the - in official-artwork
         let sprite = pokemon.data.sprites.other["official-artwork"].front_default;
-        document.getElementById("picture").innerHTML = `<img src = "${sprite}">`;
+        document.getElementById("picture").innerHTML = `<img src = "${sprite}"><br><em>API app courtesy of <a href="https://larry-volz.github.io/Portfolio-for-Larry-Volz/">Larry Volz</em></a>`;
         // console.log(sprite);
         console.log(pokeName)
     });

@@ -3,14 +3,19 @@ body {
     color: gray;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.content {
+    margin: auto;
 }
 
 h1 {
-    font-family: 'Pirata One', cursive !important;
-    color: maroon !important;
+    font-family: 'Pirata One', cursive;
+    color: maroon;
     font-size: 3rem;
     display: inline;
+    text-align: center;
 }
 
 p {
@@ -24,6 +29,6 @@ p {
 }
 
 img {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
 }
