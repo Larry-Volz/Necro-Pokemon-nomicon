@@ -45,9 +45,11 @@ function summonButton(){
         // console.log(`summoned: ${summoned}`)
         // console.log(alter);
         alter.innerText = "";
-        alter.innerText += `\n\n${summoned}`;
+        alter.innerText += `\n${summoned}`;
         let pokemon = await getPokemon(rnd);
         let pokeName = await getNames(rnd);
+        // output name to screen
+        document.getElementById("pokeName").innerText = `\n${pokeName.toUpperCase()}`;
         //Notice the use of brackets and quotes because of the - in official-artwork
         let sprite = pokemon.data.sprites.other["official-artwork"].front_default;
         document.getElementById("picture").innerHTML = `<img src = "${sprite}">`;
@@ -68,9 +70,11 @@ async function getPokemon(rnd) {
 
 async function getNames(rnd) {
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=1118`);
-    const pokeName = res.results[rnd][name];
-    // console.log(`pokemon names ${res}`);
+    const pokeName = res.data.results[rnd].name;
+    const url = res.data.results[rnd].url;
+    console.log(pokeName, url);
     return pokeName;
+    // return res;
     
 }
 
