@@ -30,21 +30,29 @@ GET https://pokeapi.co/api/v2/{endpoint}/
 
 */
 
+
 let x = summonButton();
 
 
 
 function summonButton(){
-    document.addEventListener("click", async () =>{
+    //notice it's important of adding async in front
+    //of the callback function since it CALLS an sync function
+    document.querySelector("#summon").addEventListener("click", async () =>{
+        const rnd = Math.floor(Math.random()*1118);
         let summoned = getRandomGod();
         let alter = document.getElementById("oldGods");
-        console.log(`summoned: ${summoned}`)
-        console.log(alter);
-        // alter.innerText = getPokemon()
+        // console.log(`summoned: ${summoned}`)
+        // console.log(alter);
+        alter.innerText = "";
         alter.innerText += `\n\n${summoned}`;
-        let pokemon = await getPokemon();
+        let pokemon = await getPokemon(rnd);
+        let pokeName = await getNames(rnd);
+        //Notice the use of brackets and quotes because of the - in official-artwork
         let sprite = pokemon.data.sprites.other["official-artwork"].front_default;
-        console.log(sprite);
+        document.getElementById("picture").innerHTML = `<img src = "${sprite}">`;
+        // console.log(sprite);
+        console.log(pokeName)
     });
     }
 function getRandomGod(){
@@ -52,12 +60,25 @@ function getRandomGod(){
     return oldOnes[rnd];
 }
 
-async function getPokemon() {
-    res = await axios.get("https://pokeapi.co/api/v2/pokemon/3/");
-    console.log(res);
+async function getPokemon(rnd) {
+    res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${rnd}/`);
     return res;
     
 }
+
+async function getNames(rnd) {
+    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=1118`);
+    const pokeName = res.results[rnd][name];
+    // console.log(`pokemon names ${res}`);
+    return pokeName;
+    
+}
+
+
+// async function getPokemonName(rnd){
+//     res = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
+//     return res;
+// }
 
 const oldOnes = ["A grey festering blob of infinite malevolence, described as the lesser brother of Tsathoggua or spawn of Cthulhu, born from his bile and tears.[5]",
 "An entity of living sound native to the Gulf of S'glhuo, and manifesting as a huge monstrous being. He is served by the Denizens of S'glhuo, which are made of his same substance.",

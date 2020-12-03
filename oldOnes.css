@@ -3,12 +3,14 @@ body {
     color: gray;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1.2rem;
 }
 
 h1 {
     font-family: 'Pirata One', cursive !important;
     color: maroon !important;
     font-size: 3rem;
+    display: inline;
 }
 
 p {
@@ -16,7 +18,12 @@ p {
 }
 
 #summon {
-    padding: 1rem;
+    padding: .5rem;
     border-style: outset;
     border-style: double;
+}
+
+img {
+    width: 400px;
+    height: 400px;
 }
